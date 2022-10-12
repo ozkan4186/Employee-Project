@@ -1,27 +1,17 @@
 import React from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import "./Card.css";
 
 const Cards = ({ id, name, age, image, email }) => {
   return (
     <>
-   <div className="container">
-    <h4>(Employess {} to {} </h4>
-    <img src={image} alt="" />
-    <div>{name}</div>
-    <div>{age}</div>
-    <div>{email}</div>
-    <span>
-    <FaChevronLeft/>
-    </span>
-    <span>
-    <FaChevronRight/>
-    </span>
-
-   </div>
-      
-      
-      
-      
+      <div className="card_style">
+        <img src={image} alt="" />
+        <div className="card_text">
+          <div>{name}</div>
+          <div>{age}</div>
+          <div>{email}</div>
+        </div>
+      </div>
     </>
   );
 };
