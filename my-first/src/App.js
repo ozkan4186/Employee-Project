@@ -1,45 +1,74 @@
 import React, { useState } from "react";
-import Button from "./components/button/Button";
-import Cards from "./components/card/Card";
-import data from "./helper/data";
-import "./components/card/Card.css";
+import "./App.css";
+import Cards from "./components/card/Cards";
+import data from "./helper/data.js";
 
-function App() {
-  const [count,setCount] =useState(0);
 
-  const prew=()=>{
 
-    setCount(count=count-1)
-    console.log(prew);
+
+const App = () => {
+  console.log(data);
+
+const [index,setIndex]=useState(0)
+
+const prew = () => {
+  if (index > 4) {
+    setIndex(index - 5)
   }
-   const next = () => {
-     setCount(count = count + 1)
-     console.log(next);
-   }
-  
+  if (index < 5) {
+    setIndex(15);
+  }
+
+};
+
+const next = () => {
+  if (index < 15) {
+    setIndex(index + 5)
+  }
+  if (index > 14) {
+    setIndex(0)
+  }
+
+};
+
+
+
+
+
+
+
+
+
+
+
   return (
-    <>
-      <div className="container text-center bg-white">
-        <h1>Employee List</h1>
-        <h4>
-          (Employess {1} to {5})
-        </h4>
-        {data.slice(0, 5).map((item) => {
-          return <Cards {...item} key={item.id} />;
-        })}
-        <Button />
-         <span>
-   <FaChevronLeft  onClick={prew} className="fs-3 text-success" />
-   Prev
- </span>
- <span>
-   Next
-   <FaChevronRight  onClick={next} className="fs-3 text-success" />
- </span>
-      </div>
-    </>
+    <div className="App">
+    <h1 className=" text-center bg bg-danger  " >EMPLOYEE LİST</h1>
+<h4 className="text-center" > Employes {index} to {index+5} </h4>
+{data.slice(index,index +5).map((item)=>{
+  return <Cards {...item} key={item.id} />
+})}
+< span >
+<button onClick={prew} className="btn btn-danger m-3 "  >PREV</button>
+</span>
+<span  >
+<button  onClick={next}  className="btn btn-info" >NEXT</button>
+</span>
+
+    </div>
     
-  );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  )
 }
 
-export default App;
+export default App
