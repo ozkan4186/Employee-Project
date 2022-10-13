@@ -4,7 +4,7 @@ import Cards from "./components/card/Card";
 import data from "./helper/data";
 import "./components/card/Card.css";
 
-function App(props) {
+function App() {
   const [count,setCount] =useState(0);
 
   const prew=()=>{
